@@ -44,7 +44,7 @@ class BackendService(backend_pb2_grpc.BackendServicer):
 
     def predict(self, request, context):
         # load the image from disk
-        path = request.path
+        path = request.path_img_predic_ruta
         array = self.read_jpg_file(path)
         #   1. call function to pre-process image: it returns image in batch format
         batch_array_img = self.preprocess(array)
