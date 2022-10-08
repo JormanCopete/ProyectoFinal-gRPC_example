@@ -14,4 +14,6 @@ RUN pip install -r requirements.txt
 COPY backend/src .
 COPY protos/backend.proto .
 
+ADD https://github.com/afrincon/neumonia_detector/releases/download/model/WilhemNet_86.h5 /home/src
+
 RUN python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. ./backend.proto

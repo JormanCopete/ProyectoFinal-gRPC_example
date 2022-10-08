@@ -2,6 +2,7 @@ syntax="proto3";
 
 service Backend {
     rpc load_image (img_path) returns (image);
+    rpc predict (img_predic_ruta) returns (prediction_result);
 }
 
 message image {
@@ -14,3 +15,10 @@ message img_path {
     string path = 1;
 }
 
+message prediction_result {
+    string label_prediction = 1;
+}
+
+message img_predic_ruta {
+    string path_img_predic_ruta = 1;
+}

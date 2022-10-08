@@ -8,7 +8,7 @@ services:
       context: ./
       dockerfile: backend/Dockerfile
     volumes:
-      - /Users/arturo.duquem/Downloads:/home/images
+      - /home/jorman/DPIA/images:/home/images
     command: [python, backend.py]
 
   ui:
@@ -19,7 +19,8 @@ services:
       dockerfile: interface/Dockerfile
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - /Users/arturo.duquem/Downloads:/home/images
+      - /home/jorman/DPIA/images:/home/images
     environment:
-      - DISPLAY=192.168.1.5:0
+    #  - DISPLAY=127.0.0.1:0
+      - DISPLAY=unix$DISPLAY
     command: [python, interface.py]
